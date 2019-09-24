@@ -27,7 +27,7 @@ const Login = (props) => {
         .post('our backend here/login', credentials)
         .then(res => {
             console.log('submitLogin', res)
-            localStorage.setItem('token', res.TOKENHERE) //token needs to be added
+            localStorage.setItem('token', res.token) //token needs to be added
             routeToUserDashboard();
         })
         .catch(err => console.log("Error logging in: ", err.response))
@@ -45,9 +45,11 @@ const Login = (props) => {
                        />
                 <input type='password'
                        name='password'
-                       value={crendentials.password}
+                       placeholder='password'
+                       value={credentials.password}
                        onChange={handleLogin}
                        />
+                <button onClick={submitLogin}> Login</button>
             </form>
         </div>
     )
