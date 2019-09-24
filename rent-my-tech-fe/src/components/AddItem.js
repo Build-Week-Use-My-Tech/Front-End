@@ -57,6 +57,7 @@ const AddItem = () => {
                    value={item.negotiable}
                    onChange={handleItem}
                    />
+            <button onClick={submitItem}>List Item</button>
             </form>
         </div>
     )
