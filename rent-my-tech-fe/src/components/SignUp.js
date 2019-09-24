@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const LoginForm = (props) => {
+const SignUp = (props) => {
 
     const [signup, setSignup] = useState(
-    {email: '', password: '', firstname: '', lastname: '', id: Date.now()}
+    {email: '', password: '', firstname: '', lastname: ''}
         );
 
     const handleSignup = e => {
@@ -27,20 +27,20 @@ const LoginForm = (props) => {
         let firstnameError = "";
         let lastnameError = "";
 
-        if(!inputs.email) {
+        if(!signup.email) {
             emailError = "Email is required";
             console.log('email error');
         }
                 
-        if(!inputs.firstname) {
+        if(!signup.firstname) {
             firstnameError = "First Name is required";
             console.log('first name error')
         }
-        if(!inputs.lastname) {
+        if(!signup.lastname) {
             lastnameError = "Last Name is required";
             console.log('last name error');
         }
-        if(inputs.password.length < 6) {
+        if(signup.password.length < 6) {
             passwordError = "Password must contain at least 6 characters";
             console.log("password short err")
         }
@@ -53,11 +53,11 @@ const LoginForm = (props) => {
 
     const submitSignup = e => {
         let result = validate();
-        let submitFN = inputs.firstname;
-        let submitLN = inputs.lastname;
-        let submitEmail = inputs.email;
-        let submitPW = inputs.password;
-        console.log(inputs.firstname, inputs.lastname, inputs.email, inputs.password);
+        let submitFN = signup.firstname;
+        let submitLN = signup.lastname;
+        let submitEmail = signup.email;
+        let submitPW = signup.password;
+        console.log(signup.firstname, signup.lastname, signup.email, signup.password);
 
         e.preventDefault();
         if (result === true) {
@@ -71,7 +71,7 @@ const LoginForm = (props) => {
         }
         
         axios
-            .post('BACKEND HERE', creds)
+            .post('https://reqres.in/api/users', creds)
             .then(res => {
                 console.log("signup res", res)
                 props.setLoggedIn(true)
@@ -82,39 +82,43 @@ const LoginForm = (props) => {
             .catch(err => console.log("Error signing up: ", err.response))
             
         } 
-        else console.log("error signing up", inputs)
+        else console.log("error signing up", signup)
     }
 
 
 
     return(
+        <div className='signup-form'>
         <form>
             <h3>Sign Up to List and Rent Tech!</h3>
             <input type='email'
                    name='email'
                    placeholder='Enter Email Address'
-                   value={inputs.email}
+                   value={signup.email}
                    onChange={handleSignup}
                    />
             <input type='text'
                    name='firstname'
                    placeholder='Enter First Name'
-                   value={inputs.firstname}
+                   value={signup.firstname}
                    onChange={handleSignup}
                    />
             <input type='text'
                    name='lastname'
-                   value={inputs.lastname}
+                   placeholder='Enter Last Name'
+                   value={signup.lastname}
                    onChange={handleSignup}
                    />
             <input type='password'
                    name='password'
-                   value={inputs.password}
+                   placeholder='Enter a Password'
+                   value={signup.password}
                    onChange={handleSignup}
                    />
             <button onClick={submitSignup}>Sign Up</button>
 
         </form>
+        </div>
     )
 
     }

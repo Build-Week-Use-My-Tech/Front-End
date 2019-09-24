@@ -45,10 +45,14 @@ const Login = (props) => {
                        />
                 <input type='password'
                        name='password'
-                       value={crendentials.password}
+                       placeholder='password'
+                       value={credentials.password}
                        onChange={handleLogin}
                        />
+                <button onClick={submitLogin}> Login</button>
             </form>
         </div>
     )
 }
+
+export default Login;
