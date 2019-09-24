@@ -5,6 +5,7 @@ import Navigation from "./components/Nav";
 import Dashboard from './components/Dashboard';
 import SignUp from './components/SignUp';
 import Login from './components/Login'
+import AddItem from './components/AddItem'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <SignUp />
       <Login />
       <Dashboard />
+      <AddItem />
     </div>
   );
 }

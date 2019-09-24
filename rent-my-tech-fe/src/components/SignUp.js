@@ -4,7 +4,7 @@ import axios from "axios";
 const SignUp = (props) => {
 
     const [signup, setSignup] = useState(
-    {email: '', password: '', firstname: '', lastname: ''}
+    {email: '', password: '', firstname: '', lastname: '', renter: true, owner: true}
         );
 
     const handleSignup = e => {
