@@ -7,8 +7,7 @@ function ItemsList() {
         
     })
     return (
-        <div>
-            
+        <div> 
         </div>
     )
 }
