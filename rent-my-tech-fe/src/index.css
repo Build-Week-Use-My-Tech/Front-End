@@ -81,8 +81,7 @@ section,
 summary,
 time,
 mark,
-audio,
-video {
+audio{
   margin: 0;
   padding: 0;
   border: 0;

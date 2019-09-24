@@ -10,11 +10,8 @@ import AddItem from './components/AddItem'
 function App() {
   return (
     <div className="App">
-    {/* <Navigation/> */}
+    <Navigation/>
       <SignUp />
-      <Login />
-      <Dashboard />
-      <AddItem />
     </div>
   );
 }
