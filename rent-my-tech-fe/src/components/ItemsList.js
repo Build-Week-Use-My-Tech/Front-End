@@ -8,7 +8,7 @@ function ItemsList() {
     useEffect(() => {
         const getItems = () => {
             axios
-            .get()
+            .get('https://tech-stuff.herokuapp.com/api/ads')
             .then(response => {
                 console.log(response.data);
                setItemsList(response.data); 
@@ -23,7 +23,7 @@ function ItemsList() {
         <div>
             {itemsList.map(item => (
                 <Link to=''>
-                <ItemsCard key={item} item={item}/>
+                <ItemsCard key={item.id} item={item}/>
                 </Link>
             ))}
         </div>

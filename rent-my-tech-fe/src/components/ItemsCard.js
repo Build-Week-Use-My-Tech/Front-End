@@ -7,11 +7,11 @@ const ItemCardStyle = styled.div`
 
 
 function ItemsCard (props) {
-    const {title, description, imgUrl, price, item_condition} = props.items;
+    const {title, description, img_url, price, item_condition} = props.items;
     return(
         <ItemCardStyle>
             <div>
-                <img src={imgUrl}/>
+                <img src={img_url}/>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <p>{price}</p>
