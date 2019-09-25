@@ -24,10 +24,10 @@ const Login = (props) => {
     const submitLogin = e => {
         e.preventDefault();
         axiosWithAuth()
-        .post('our backend here/login', credentials)
+        .post('/api/auth/login', credentials)
         .then(res => {
             console.log('submitLogin', res)
-            localStorage.setItem('token', res.token) //token needs to be added
+            localStorage.setItem('token', res.data.token)
             routeToUserDashboard();
         })
         .catch(err => console.log("Error logging in: ", err.response))

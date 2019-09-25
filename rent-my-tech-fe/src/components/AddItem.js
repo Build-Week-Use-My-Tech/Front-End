@@ -1,7 +1,20 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import axiosWithAuth from './utils/axiosWithAuth';
 
-const AddItem = () => {
+const AddItem = (props) => {
+
+    const [user, setUser] = useState([]);
+
+    const getUser = () => {
+        axiosWithAuth()
+           .get(`/api/users/`)
+           .then(res => {
+               console.log(res.data)
+               localStorage.setItem('USERID', res.data.id)
+               setUser(res.data)
+           })
+       }
 
     const [item, setItem] = useState({title:"",description:"",  img_url:"", price:20.00, item_condition:"Excellent", item_available: 1, negotiable: true})
 
@@ -11,9 +24,18 @@ const AddItem = () => {
         console.log(item)
     }
 
-    const submitItem = () =>{
-        axios.post('BACKEND POST', item)
+    console.log(user.id)
+
+    const submitItem = e =>{
+        e.preventDefault();
+        getUser();
+        console.log(item)
+         const id = localStorage.getItem('USERID')
+        console.log(id)
+        axiosWithAuth()
+        .post(`/api/ads/user/1`, item)
             .then(res =>{
+                console.log(item)
                 console.log(res)
             })
     }

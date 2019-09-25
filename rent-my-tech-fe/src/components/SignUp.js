@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import axiosWithAuth from "./utils/axiosWithAuth";
 
 const SignUp = (props) => {
 
     const [signup, setSignup] = useState(
-    {email: '', password: '', firstname: '', lastname: '', renter: true, owner: true}
+    {email: '', password: '', first_name: '', last_name: '', renter: true, owner: true}
         );
 
     const handleSignup = e => {
@@ -32,11 +33,11 @@ const SignUp = (props) => {
             console.log('email error');
         }
                 
-        if(!signup.firstname) {
+        if(!signup.first_name) {
             firstnameError = "First Name is required";
             console.log('first name error')
         }
-        if(!signup.lastname) {
+        if(!signup.last_name) {
             lastnameError = "Last Name is required";
             console.log('last name error');
         }
@@ -53,33 +54,36 @@ const SignUp = (props) => {
 
     const submitSignup = e => {
         let result = validate();
-        let submitFN = signup.firstname;
-        let submitLN = signup.lastname;
+        let submitFN = signup.first_name;
+        let submitLN = signup.last_name;
         let submitEmail = signup.email;
         let submitPW = signup.password;
-        console.log(signup.firstname, signup.lastname, signup.email, signup.password);
+        console.log('signup firing', signup.first_name, signup.last_name, signup.email, signup.password);
 
         e.preventDefault();
         if (result === true) {
             console.log("validate: ", result)
            
         let creds = {
-            firstname: submitFN,
-            lastname: submitLN,
+            first_name: submitFN,
+            last_name: submitLN,
             email: submitEmail,
-            password: submitPW
+            password: submitPW,
+            owner: true,
+            renter: true
         }
         
         axios
-            .post('https://reqres.in/api/users', creds)
+            .post('https://tech-stuff.herokuapp.com/api/auth/register', creds)
             .then(res => {
                 console.log("signup res", res)
+                console.log("creds submitted", creds)
                 props.setLoggedIn(true)
-                localStorage.setItem("token", res.data.TOKENHERE)
+                localStorage.setItem("token", res.token)
                 routeToLogin()
             })
             
-            .catch(err => console.log("Error signing up: ", err.response))
+            .catch(err => console.log( err.response))
             
         } 
         else console.log("error signing up", signup)
@@ -98,15 +102,15 @@ const SignUp = (props) => {
                    onChange={handleSignup}
                    />
             <input type='text'
-                   name='firstname'
+                   name='first_name'
                    placeholder='Enter First Name'
-                   value={signup.firstname}
+                   value={signup.first_name}
                    onChange={handleSignup}
                    />
             <input type='text'
-                   name='lastname'
+                   name='last_name'
                    placeholder='Enter Last Name'
-                   value={signup.lastname}
+                   value={signup.last_name}
                    onChange={handleSignup}
                    />
             <input type='password'

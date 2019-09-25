@@ -5,14 +5,17 @@ const ItemCardStyle = styled.div`
     display: flex;
 `;
 
-function ItemsCard () {
+
+function ItemsCard (props) {
+    const {title, description, img_url, price, item_condition} = props.items;
     return(
         <ItemCardStyle>
             <div>
-                <h3>Cameras</h3>
-            </div>
-            <div>
-                <h3>Monitors</h3>
+                <img src={img_url}/>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <p>{price}</p>
+                <p>{item_condition}</p>
             </div>
         </ItemCardStyle>
     )
