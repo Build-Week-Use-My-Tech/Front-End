@@ -1,42 +1,39 @@
 import React from "react";
-import {Nav, Navbar, Link, Form, FormControl, Button} from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 import styled from "styled-components";
 // import { Link } from "react-router-dom";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
-const NavStyle = styled.div`
-    display: flex;
-    justify-content: space-between;
-`
+const Styles = styled.div`
+  .navbar{
+    background-color: #03b6fc;
+    height: 7.5vh;
+  }
 
-const LinkStyle = styled.div`
+  .navbar-brand, navbar-nav, .nav-link, .nav-item {
     font-size: 1.6rem;
-    margin: 0 10px;
-`
-//needs more styling **backbround, text, hover, pointer, etc
+    font-weight: bold;
+    
+    &:hover {
+      color: white;
+    }
+  }
+`;
 
-const Navigation = () => {
-    return(
-        <Navbar>
-            <NavStyle>
-              {/* could use a logo */}
-              <LinkStyle>
-                <Navbar.Brand href="/">Use My Tech</Navbar.Brand>
-              </LinkStyle>
-              <Form inline>
-                  {/* might not even need this bar */}
-                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                <Button variant="outline-light">Search</Button>
-              </Form>
-              <LinkStyle>
-                <Nav.Link href="/Login">Login</Nav.Link>
-                <Nav.Link href="/SignUp">Sign Up</Nav.Link>
-                <Nav.Link href="/">Post New Ad</Nav.Link>
-              </LinkStyle>
-            </NavStyle>
-        </Navbar>
-        
-    );
-};
+const Navigation = () => (
+  <Styles>
+    <Navbar expand= "lg">
+      <Navbar.Brand href="/">Use My Tech</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Item><Nav.Link href="/Login">Login</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/SignUp">Sign Up</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/AddItem">Post New Ad</Nav.Link></Nav.Item>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  </Styles>
+);
 
-export default Navigation;
+export default Navigation;   
