@@ -181,3 +181,26 @@ button{
 .navLinks{
   font-size: 1.6rem;
 }
+
+.card-image{
+  width: 90%;
+}
+
+.itemslist{
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
+
+.item-card{
+  width: 25%;
+  margin: 2%;
+  font-size: 1.6rem;
+  box-shadow: 3px 15px 51px -27px rgba(0,0,0,0.75);
+  border-radius: 20px;
+}
+
+.item-card:hover{
+  transform: translate(3px, 7px)
+}

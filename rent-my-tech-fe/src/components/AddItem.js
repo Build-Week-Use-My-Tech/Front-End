@@ -4,19 +4,7 @@ import axiosWithAuth from './utils/axiosWithAuth';
 
 const AddItem = (props) => {
 
-    const [user, setUser] = useState([]);
-
-    const getUser = () => {
-        axiosWithAuth()
-           .get(`/api/users/`)
-           .then(res => {
-               console.log(res.data)
-               localStorage.setItem('USERID', res.data.id)
-               setUser(res.data)
-           })
-       }
-
-    const [item, setItem] = useState({title:"",description:"",  img_url:"", price:20.00, item_condition:"Excellent", item_available: 1, negotiable: true})
+    const [item, setItem] = useState({title:"",description:"",  img_url:"", price:20.00, item_condition:"Excellent", item_available: true, negotiable: true})
 
     const handleItem = event => {
         setItem({...item,
@@ -24,20 +12,17 @@ const AddItem = (props) => {
         console.log(item)
     }
 
-    console.log(user.id)
-
     const submitItem = e =>{
         e.preventDefault();
-        getUser();
-        console.log(item)
-         const id = localStorage.getItem('USERID')
-        console.log(id)
+        const id = localStorage.getItem('USERID')
+        console.log(item, id)
         axiosWithAuth()
-        .post(`/api/ads/user/1`, item)
+        .post(`/api/ads/user/${id}`, item)
             .then(res =>{
                 console.log(item)
                 console.log(res)
             })
+            .catch(err => console.log(err.message))
     }
 
     return(
