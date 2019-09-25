@@ -1,7 +1,17 @@
 import React from "react";
+
+
+import Login from './Login.js'
+import SignUp from './SignUp.js'
+import AddItem from './AddItem.js'
+import Dashboard from './Dashboard.js'
+import ItemsList from './ItemsList'
+import PrivateRoute from './PrivateRoute'
+import { Link, Route, Switch } from "react-router-dom";
+import {Nav, Navbar, Link, Form, FormControl, Button} from "react-bootstrap";
 import {Nav, Navbar} from "react-bootstrap";
 import styled from "styled-components";
-// import { Link } from "react-router-dom";
+
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Styles = styled.div`
@@ -20,6 +30,7 @@ const Styles = styled.div`
   }
 `;
 
+
 const Navigation = () => (
   <Styles>
     <Navbar expand= "lg">
@@ -27,13 +38,21 @@ const Navigation = () => (
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Item><Nav.Link href="/Login">Login</Nav.Link></Nav.Item>
-          <Nav.Item><Nav.Link href="/SignUp">Sign Up</Nav.Link></Nav.Item>
-          <Nav.Item><Nav.Link href="/AddItem">Post New Ad</Nav.Link></Nav.Item>
+          <Nav.Item><Link to="/login">Log In</Link></Nav.Item>
+          <Nav.Item><Link to="/signup">Sign Up</Link></Nav.Item>
+          <Nav.Item> <Link to="/additem">Post your Tech</Link></Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
+      <Switch>
+         <Route exact path='/' component={ItemsList} />
+          <Route path='/login' component={Login} />
+          <Route path='/signup' component={SignUp} />
+         <PrivateRoute path='/dashboard' component={Dashboard} />
+          <PrivateRoute path='/additem' component={AddItem} />
+    </Switch> 
   </Styles>
 );
+
 
 export default Navigation;   
