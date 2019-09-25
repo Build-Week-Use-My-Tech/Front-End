@@ -1,8 +1,6 @@
 import React from "react";
 import {Nav, Navbar} from "react-bootstrap";
 import styled from "styled-components";
-// import { Link } from "react-router-dom";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Styles = styled.div`
   .navbar{
@@ -13,7 +11,7 @@ const Styles = styled.div`
   .navbar-brand, navbar-nav, .nav-link, .nav-item {
     font-size: 1.6rem;
     font-weight: bold;
-    
+
     &:hover {
       color: white;
     }
@@ -23,7 +21,7 @@ const Styles = styled.div`
 const Navigation = () => (
   <Styles>
     <Navbar expand= "lg">
-      <Navbar.Brand href="/">Use My Tech</Navbar.Brand>
+      <Navbar.Brand href="/">Rent My Tech</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
