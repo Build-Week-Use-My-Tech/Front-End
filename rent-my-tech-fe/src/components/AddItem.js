@@ -17,7 +17,7 @@ const AddItem = (props) => {
         const id = localStorage.getItem('USERID')
         console.log(item, id)
         axiosWithAuth()
-        .post(`/api/ads/users/6`, item)
+        .post(`/api/ads/user/${id}`, item)
             .then(res =>{
                 console.log(item)
                 console.log(res)
