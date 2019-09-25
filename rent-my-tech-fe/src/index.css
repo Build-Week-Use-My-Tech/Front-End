@@ -177,3 +177,7 @@ button{
   padding: 10px 40px;
   border-radius: 10px;
 }
+
+.navLinks{
+  font-size: 1.6rem;
+}
