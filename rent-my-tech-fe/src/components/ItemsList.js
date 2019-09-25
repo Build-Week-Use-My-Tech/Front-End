@@ -23,13 +23,7 @@ function ItemsList() {
     return (
         <div className='itemslist'>
             {itemsList.map(item => (
-<<<<<<< HEAD
-                // <Link to=''>
                 <ItemsCard key={item.id} item={item}/>
-                // </Link>
-=======
-                <ItemsCard key={item.id} item={item}/>
->>>>>>> 6d2f82ed3a075e0e06c76a97301b73b276b4def0
             ))}
         </div>
     )
