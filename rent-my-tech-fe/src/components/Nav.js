@@ -1,6 +1,4 @@
 import React from "react";
-
-
 import Login from './Login.js'
 import SignUp from './SignUp.js'
 import AddItem from './AddItem.js'
@@ -8,8 +6,12 @@ import Dashboard from './Dashboard.js'
 import ItemsList from './ItemsList'
 import PrivateRoute from './PrivateRoute'
 import { Link, Route, Switch } from "react-router-dom";
+<<<<<<< HEAD
 // import {Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
 import {Nav, Navbar} from "react-bootstrap";
+=======
+import {Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
+>>>>>>> 6d2f82ed3a075e0e06c76a97301b73b276b4def0
 import styled from "styled-components";
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -53,6 +55,7 @@ const Navigation = () => (
     </Switch> 
   </Styles>
 );
+
 
 
 export default Navigation;   
