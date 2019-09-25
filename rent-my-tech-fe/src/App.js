@@ -11,7 +11,10 @@ function App() {
   return (
     <div className="App">
     <Navigation/>
-      <SignUp />
+    <Login />
+    <SignUp />
+      <AddItem />
+      <Dashboard />
     </div>
   );
 }
