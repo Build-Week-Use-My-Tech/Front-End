@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 // import axios from 'axios';
 import ItemsCard from './ItemsCard';
 import axiosWithAuth from './utils/axiosWithAuth';
+import {Link} from 'react-router-dom';
 
 function ItemsList() {
     const [itemsList, setItemsList] = useState([]);
@@ -23,7 +24,9 @@ function ItemsList() {
     return (
         <div className='itemslist'>
             {itemsList.map(item => (
+             <Link to ={`/items/${item.id}`}>
                 <ItemsCard key={item.id} item={item}/>
+            </Link>
             ))}
         </div>
     )

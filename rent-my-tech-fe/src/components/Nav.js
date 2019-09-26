@@ -47,12 +47,12 @@ const Navigation = () => (
       </Navbar.Collapse>
     </Navbar>
       <Switch>
-         <Route exact path='/ItemsList' component={ItemsList} />
+         <Route exact path='/' component={ItemsList} />
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
          <PrivateRoute path='/dashboard' component={Dashboard} />
           <PrivateRoute path='/additem' component={AddItem} />
-          <PrivateRoute path='/itemdetail' component={ItemPage} />
+          <Route path='/items/:id' component={ItemPage} />
     </Switch> 
   </Styles>
 );

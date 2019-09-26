@@ -11,6 +11,7 @@ const Item = (props) => {
         axios.get(`https://tech-stuff.herokuapp.com/api/ads/${id}`)
         .then(response => {
             setItem(response.data)
+            console.log(response.data)
         })
         .catch(error => {
             console.log('Error:', error)
@@ -19,15 +20,13 @@ const Item = (props) => {
 
     if (!item) {
         return(
-            
+
         <div>Page loading information</div>)
     }
     return (
-        <div>
-            <ItemsCard />
-            {/* <button onClick={bookSubmit}>Book Item</button> */}
-        </div>
+            <ItemsCard key={item.id} item={item}/>
     );
 }
 
-export default import('axios').AxiosInterceptorManager;
+// export default import('axios').AxiosInterceptorManager;
+export default Item;
