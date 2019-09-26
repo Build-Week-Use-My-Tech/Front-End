@@ -37,6 +37,7 @@ const Navigation = () => (
         <Nav className="ml-auto">
           <Nav.Item><Link to="/login">Log In</Link></Nav.Item>
           <Nav.Item><Link to="/signup">Sign Up</Link></Nav.Item>
+          <Nav.Item><Link to="/dashboard">Dashboard</Link></Nav.Item>
           <Nav.Item> <Link to="/additem">Post your Tech</Link></Nav.Item>
         </Nav>
       </Navbar.Collapse>
