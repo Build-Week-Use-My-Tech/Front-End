@@ -24,9 +24,9 @@ function ItemsList() {
     return (
         <div className='itemslist'>
             {itemsList.map(item => (
-             <Link to ={`/items/${item.id}`}>
+            // <Link to ={`/items/${item.id}`}>
                 <ItemsCard key={item.id} item={item}/>
-            </Link>
+            // </Link>
             ))}
         </div>
     )

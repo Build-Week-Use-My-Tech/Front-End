@@ -8,9 +8,10 @@ const Item = (props) => {
     useEffect(() => {
         const id = props.match.params.id;
 
-        axios.get(`https://tech-stuff.herokuapp.com/api/ads/${id}`)
+        axios
+        .get(`https://tech-stuff.herokuapp.com/api/ads/${id}`)
         .then(response => {
-            setItem(response.data)
+            setItem(response.data);
             console.log(response.data)
         })
         .catch(error => {
@@ -19,9 +20,7 @@ const Item = (props) => {
     },[props.match.params.id])
 
     if (!item) {
-        return(
-
-        <div>Page loading information</div>)
+        return <div>Page loading information...</div>;
     }
     return (
             <ItemsCard key={item.id} item={item}/>

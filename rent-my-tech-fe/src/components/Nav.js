@@ -35,7 +35,7 @@ const Styles = styled.div`
 const Navigation = () => (
   <Styles>
     <Navbar expand= "lg">
-      <Link to='/itemslist'><Navbar.Brand >Rent My Tech</Navbar.Brand></Link>
+      <Link to='/'><Navbar.Brand >Rent My Tech</Navbar.Brand></Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
