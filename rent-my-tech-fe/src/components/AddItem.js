@@ -27,6 +27,7 @@ const AddItem = (props) => {
 
     return(
         <div className='additem-form'>
+            <h3>Add New Item to Rent:</h3>
             <form>
             <span>Title:</span>
             <input type='text'
@@ -57,6 +58,7 @@ const AddItem = (props) => {
                 <option>Excellent</option>
                 <option>Good</option>
                 <option>Fair</option>
+                <option>Poor</option>
             </select>
             <span>Negotiable</span>
             <input type='checkbox'
