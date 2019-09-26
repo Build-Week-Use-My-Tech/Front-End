@@ -179,6 +179,21 @@ button{
   border-radius: 10px;
 }
 
+i{
+  font-size: 3rem;
+}
+
+i:hover{
+  color: #09d3ac;
+}
+
+.button-row{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
 .navLinks{
   font-size: 1.6rem;
 }
@@ -188,7 +203,8 @@ button{
 }
 
 .itemslist{
- width: 100%;
+ max-width: 80%;
+ margin: 0 auto;
  display: flex;
  flex-wrap: wrap;
  justify-content: space-around;
