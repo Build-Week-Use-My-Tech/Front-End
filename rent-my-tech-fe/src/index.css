@@ -198,6 +198,11 @@ i:hover{
   font-size: 1.6rem;
 }
 
+.user-ads{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card-image{
   width: 90%;
 }
@@ -216,6 +221,7 @@ i:hover{
   font-size: 1.6rem;
   box-shadow: 3px 15px 51px -27px rgba(0,0,0,0.75);
   border-radius: 20px;
+  padding: 1rem;
 }
 
 .item-card:hover{

@@ -18,7 +18,7 @@ const SignUp = (props) => {
             }
     
     const routeToLogin = () => {
-            props.history.push("/") //Add route to login
+            props.history.push("/login") //Add route to login
         }
     
     
@@ -80,10 +80,11 @@ const SignUp = (props) => {
                 console.log("creds submitted", creds)
                 props.setLoggedIn(true)
                 localStorage.setItem("token", res.token)
-                routeToLogin()
+               
             })
             
-            .catch(err => console.log( err.response))
+            .catch(err => console.log( err.response));
+            routeToLogin()
             
         } 
         else console.log("error signing up", signup)

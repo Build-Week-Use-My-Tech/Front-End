@@ -32,7 +32,15 @@ const Styles = styled.div`
 `;
 
 
-const Navigation = () => (
+
+const Navigation = ({ history }) => {
+
+    const logout = ()=>{
+        localStorage.clear();
+        history.push("/login")
+    }
+    
+    return(
   <Styles>
     <Navbar expand= "lg">
       <Link to='/itemslist'><Navbar.Brand >Rent My Tech</Navbar.Brand></Link>
@@ -43,6 +51,7 @@ const Navigation = () => (
           <Nav.Item><Link to="/signup">Sign Up</Link></Nav.Item>
           <Nav.Item><Link to="/dashboard">Dashboard</Link></Nav.Item>
           <Nav.Item> <Link to="/additem">Post your Tech</Link></Nav.Item>
+          <Nav.Item onClick={logout}>Log Out</Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
@@ -55,7 +64,8 @@ const Navigation = () => (
           <PrivateRoute path='/itemdetail' component={ItemPage} />
     </Switch> 
   </Styles>
-);
+)
+    };
 
 
 

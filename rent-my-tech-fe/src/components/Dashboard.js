@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axiosWithAuth from './utils/axiosWithAuth';
 // import axios from 'axios'
 import DashCard from './DashCard.js'
+import { Link } from 'react-router-dom'
 
  const Dashboard = () => {
 
@@ -34,7 +35,7 @@ import DashCard from './DashCard.js'
     return(
         <div className='dashboard'>
             <h3>Hello {user.first_name}!</h3>
-            <h3>You currently have {dashboard.length} items listed to be rented. Click on the cards below to edit/remove them.</h3>
+            <h3>You currently have {dashboard.length} items listed to be rented. Click on the cards below to edit/remove them. You can also <Link to='/additem'>list a new item</Link></h3>
             <div className='user-ads'>
             {dashboard.map(item =>{
                 return <DashCard item={item} dashboard={dashboard} setDashboard={setDashboard} />
