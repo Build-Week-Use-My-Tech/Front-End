@@ -14,8 +14,8 @@ function App() {
     
     {/* <Login />
     <SignUp />
-      <AddItem />
-      <Dashboard /> */}
+      <AddItem />*/}
+     
     </div>
   );
 }
