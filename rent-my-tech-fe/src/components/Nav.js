@@ -51,6 +51,7 @@ const Navigation = () => (
           <Route path='/signup' component={SignUp} />
          <PrivateRoute path='/dashboard' component={Dashboard} />
           <PrivateRoute path='/additem' component={AddItem} />
+          <PrivateRoute path='/itemdetail' component={ItemPage} />
     </Switch> 
   </Styles>
 );
