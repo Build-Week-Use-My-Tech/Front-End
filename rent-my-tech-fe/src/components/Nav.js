@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute'
 import { Link, Route, Switch } from "react-router-dom";
 import {Nav, Navbar} from "react-bootstrap";
 import styled from "styled-components";
+import ItemPage from './ItemPage'
 
 const Styles = styled.div`
   .navbar{
@@ -34,7 +35,7 @@ const Styles = styled.div`
 const Navigation = () => (
   <Styles>
     <Navbar expand= "lg">
-      <Navbar.Brand href="/">Rent My Tech</Navbar.Brand>
+      <Link to='/itemslist'><Navbar.Brand >Rent My Tech</Navbar.Brand></Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">

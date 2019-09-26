@@ -24,7 +24,9 @@ const Item = (props) => {
     return (
         <div>
             <ItemsCard />
-            <button onClick={bookSubmit}>Book Item</button>
+            {/* <button onClick={bookSubmit}>Book Item</button> */}
         </div>
     );
 }
+
+export default import('axios').AxiosInterceptorManager;
