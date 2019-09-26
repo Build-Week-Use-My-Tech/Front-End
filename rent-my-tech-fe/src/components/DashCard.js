@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axiosWithAuth from './utils/axiosWithAuth'
 import Modali, { useModali } from 'modali';
 
@@ -52,7 +52,7 @@ const DashCard = ({ item, dashboard, setDashboard }) => {
       };
     return(
         <div className='item-card'>
-             <img className='card-image' src={img_url}/>
+             <img className='card-image' alt="" src={img_url}/>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <p>{price}</p>

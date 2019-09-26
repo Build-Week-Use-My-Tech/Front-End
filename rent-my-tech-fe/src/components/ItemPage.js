@@ -19,6 +19,7 @@ const Item = (props) => {
 
     if (!item) {
         return(
+            
         <div>Page loading information</div>)
     }
     return (
