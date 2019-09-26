@@ -6,24 +6,27 @@ import Dashboard from './Dashboard.js'
 import ItemsList from './ItemsList'
 import PrivateRoute from './PrivateRoute'
 import { Link, Route, Switch } from "react-router-dom";
-import {Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
+import {Nav, Navbar} from "react-bootstrap";
 import styled from "styled-components";
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Styles = styled.div`
   .navbar{
-    background-color: #03b6fc;
+    background-color: #222;
     height: 7.5vh;
   }
 
-  .navbar-brand, navbar-nav, .nav-link, .nav-item {
-    font-size: 1.6rem;
+  a, .navbar-brand, navbar-nav, .nav-link, .nav-item {
+    color: #bbb;
+    font-size: 1.4rem;
     font-weight: bold;
-    
+
     &:hover {
       color: white;
     }
+  }
+
+  .nav-item {
+    margin: auto 5px;
   }
 `;
 
@@ -31,7 +34,7 @@ const Styles = styled.div`
 const Navigation = () => (
   <Styles>
     <Navbar expand= "lg">
-      <Navbar.Brand href="/">Use My Tech</Navbar.Brand>
+      <Navbar.Brand href="/">Rent My Tech</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
@@ -43,7 +46,7 @@ const Navigation = () => (
       </Navbar.Collapse>
     </Navbar>
       <Switch>
-         <Route exact path='/' component={ItemsList} />
+         <Route exact path='/ItemsList' component={ItemsList} />
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
          <PrivateRoute path='/dashboard' component={Dashboard} />
