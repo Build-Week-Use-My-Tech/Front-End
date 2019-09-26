@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axiosWithAuth from './utils/axiosWithAuth'
 import Modali, { useModali } from 'modali';
 
@@ -62,18 +62,19 @@ const userid = localStorage.getItem("USERID");
       })
       .catch(err => console.log(err));
   };
-  return (
-    <div className="item-card">
-      <img className="card-image" src={img_url} />
-      <h3>{title}</h3>
-      <p>{description}</p>
-      <p>{price}</p>
-      <p>{item_condition}</p>
-      <div className="button-row">
+
+      
+    return(
+        <div className='item-card'>
+             <img className='card-image' alt="" src={img_url}/>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <p>{price}</p>
+                <p>{item_condition}</p>
+                <div className="button-row">
         <div onClick={() => deleteItem(item) + console.log("delete", item)}>
           <i class="fas fa-trash-alt"></i>
-        </div>
-
+          </div>
         <div
           onClick={() => editItem(item) + console.log("edit", item, itemToEdit)}
         >

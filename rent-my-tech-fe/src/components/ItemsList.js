@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import ItemsCard from './ItemsCard';
 import axiosWithAuth from './utils/axiosWithAuth';
 
