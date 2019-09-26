@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axiosWithAuth from './utils/axiosWithAuth'
+import Modali, { useModali } from 'modali';
 
 const DashCard = ({ item, dashboard, setDashboard }) => {
 
@@ -12,43 +14,68 @@ const DashCard = ({ item, dashboard, setDashboard }) => {
     negotiable: true
     }
 
-    { title,  img_url, price, item_condition, item_available, negotiable } = item;
+    const { title,  description, img_url, price, item_condition, item_available, negotiable } = item;
 
     const [editing, setEditing] = useState(false);
     const [itemToEdit, setItemToEdit] = useState(initialItem);
+    const [exampleModal, toggleExampleModal] = useModali();
 
     const editItem = item => {
+        toggleExampleModal();
         setEditing(true);
         setItemToEdit(item)
     }
 
     const saveEdit = e => {
         e.preventDefault();
+        const userid = localStorage.getItem('USERID')
         axiosWithAuth()
-        .put(`BACKEND`, itemToEdit)
+        .put(`/api/ads/user/${userid}/update/${itemToEdit.id}`, itemToEdit)
         .then(res => {
             setDashboard(dashboard.map(item => 
                 (item.id === res.data.id ? res.data : item)))
+            console.log(itemToEdit)
         })
     }
 
     const deleteItem = item => {
+        const userid = localStorage.getItem('USERID')
+        console.log('start delete')
         axiosWithAuth()
-          .delete(``)
+          .delete(`/api/ads/user/${userid}/delete/${item.id}`)
           .then(res => {
-            setDashboard(dashboard.filter(item => item.id !== res.data))
-            console.log(res.data)
+            console.log('delete item fired')
+            setDashboard(dashboard.filter(item => item.id !== res.data));
+            console.log(res.data);
           })
           .catch(err => console.log(err));
       };
     return(
-        <div>
-             <img src={imgUrl}/>
+        <div className='item-card'>
+             <img className='card-image' src={img_url}/>
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <p>{price}</p>
                 <p>{item_condition}</p>
-            <button onClick={() =>deleteItem(item)}> Delete</button>
+            <button onClick={() =>deleteItem(item) + console.log('delete', item)}> Delete</button>
+            <button onClick={() => editItem(item) + console.log('edit', item, itemToEdit)}>Edit</button>
+            <Modali.Modal {...exampleModal}>
+            {editing && (
+                <form onSubmit={saveEdit}>
+                    <input onChange={e => 
+                    setItemToEdit({ ...itemToEdit, title: e.target.value })
+                    }
+                           value={itemToEdit.title}
+                    />
+            <div className="button-row">
+            <button type="submit">save</button>
+            {/* <button onClick={() => setEditing(false)}>cancel</button> */}
+          </div>
+                </form>
+            )}
+            </Modali.Modal>
         </div>
     )
 }
+
+export default DashCard;
