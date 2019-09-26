@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
 import Navigation from "./components/Nav";
 import Dashboard from './components/Dashboard';
@@ -12,10 +11,11 @@ function App() {
   return (
     <div className="App">
     <Navigation/>
-    <Login />
+    
+    {/* <Login />
     <SignUp />
-      <AddItem />
-      <Dashboard />
+      <AddItem />*/}
+     
     </div>
   );
 }

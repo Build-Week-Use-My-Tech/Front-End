@@ -1,23 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
-const ItemCardStyle = styled.div`
-    display: flex;
-`;
+// const ItemCardStyle = styled.div`
+//     display: flex;
+//     width: 100px;
+// `;
 
 
-function ItemsCard (props) {
-    const {title, description, img_url, price, item_condition} = props.items;
+function ItemsCard ({ item }) {
+    const {title, description, img_url, price, item_condition} = item;
     return(
-        <ItemCardStyle>
-            <div>
-                <img src={img_url}/>
+        // <ItemCardStyle>
+        
+            <div className='item-card'>
+                <Link to='/itemdetail'>
+                <img className='card-image' src={img_url}/>
                 <h3>{title}</h3>
                 <p>{description}</p>
-                <p>{price}</p>
+                <p>${price}/per day</p>
                 <p>{item_condition}</p>
+                </Link>
             </div>
-        </ItemCardStyle>
+           
     )
 }
 

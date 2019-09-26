@@ -17,7 +17,7 @@ const Login = (props) => {
     }
 
     const routeToUserDashboard = () => {
-        props.history.push("/")
+        props.history.push("/dashboard")
     }
     //Routes are not set up yet, so this will likely need to be updated. it should take the user to their dashboard, where they can see any items they may have listed to be rented
 

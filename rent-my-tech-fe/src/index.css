@@ -159,6 +159,7 @@ form input{
   margin: 1rem;
   padding: .5rem;
   border: 1px solid black;
+  font-size: 1.6rem;
 }
 
 form select{
@@ -180,4 +181,35 @@ button{
 
 .navLinks{
   font-size: 1.6rem;
+}
+
+.card-image{
+  width: 90%;
+}
+
+.itemslist{
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+}
+
+.item-card{
+  width: 25%;
+  margin: 2%;
+  font-size: 1.6rem;
+  box-shadow: 3px 15px 51px -27px rgba(0,0,0,0.75);
+  border-radius: 20px;
+}
+
+.item-card:hover{
+  transform: translate(3px, 7px)
+}
+
+.modali-body{
+  font-size: 1.4rem
+}
+
+.modali-header{
+  display: none;
 }

@@ -1,6 +1,4 @@
 import React from "react";
-
-
 import Login from './Login.js'
 import SignUp from './SignUp.js'
 import AddItem from './AddItem.js'
@@ -40,6 +38,7 @@ const Navigation = () => (
         <Nav className="ml-auto">
           <Nav.Item><Link to="/login">Log In</Link></Nav.Item>
           <Nav.Item><Link to="/signup">Sign Up</Link></Nav.Item>
+          <Nav.Item><Link to="/dashboard">Dashboard</Link></Nav.Item>
           <Nav.Item> <Link to="/additem">Post your Tech</Link></Nav.Item>
         </Nav>
       </Navbar.Collapse>
@@ -53,6 +52,7 @@ const Navigation = () => (
     </Switch> 
   </Styles>
 );
+
 
 
 export default Navigation;   

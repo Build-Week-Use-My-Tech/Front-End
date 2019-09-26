@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import axiosWithAuth from './utils/axiosWithAuth';
 import axios from 'axios'
-import ItemsCard from './ItemsCard.js'
+import DashCard from './DashCard.js'
 
  const Dashboard = () => {
 
     const [user, setUser] = useState([]);
     const [dashboard, setDashboard] = useState([]);
 
-    const getUser = () => {
+    useEffect( () => {
      axiosWithAuth()
         .get(`/api/users/`)
         .then(res => {
             console.log(res.data)
+            localStorage.setItem('USERID', res.data.id)
             setUser(res.data)
         })
-    }
+    }, [])
     
 
     console.log(user)
 
     useEffect(() => {
-        getUser();
+        const id = localStorage.getItem('USERID')
         axiosWithAuth()
-           .get(`/api/ads`)
+           .get(`/api/users/${id}/ads`)
            .then(res => {
                console.log(res.data)
                setDashboard(res.data)
@@ -33,11 +34,12 @@ import ItemsCard from './ItemsCard.js'
     return(
         <div className='dashboard'>
             <h3>Hello {user.first_name}!</h3>
-            {/* <div className='user-ads'>
-            {dashboard.map(ad =>{
-                return <DashCard dashboard={dashboard} setDashboard={setDashboard} />
+            <h3>You currently have {dashboard.length} items listed to be rented. Click on the cards below to edit/remove them.</h3>
+            <div className='user-ads'>
+            {dashboard.map(item =>{
+                return <DashCard item={item} dashboard={dashboard} setDashboard={setDashboard} />
             })}
-            </div> */}
+            </div>
         </div>
     )
 }
