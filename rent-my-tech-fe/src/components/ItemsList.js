@@ -22,9 +22,9 @@ function ItemsList() {
     return (
         <div>
             {itemsList.map(item => (
-                <Link to=''>
+                // <Link to=''>
                 <ItemsCard key={item.id} item={item}/>
-                </Link>
+                // </Link>
             ))}
         </div>
     )
