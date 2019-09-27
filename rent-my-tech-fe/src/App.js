@@ -12,10 +12,6 @@ function App() {
     <div className="App">
     <Navigation/>
     
-    {/* <Login />
-    <SignUp />
-      <AddItem />*/}
-     
     </div>
   );
 }

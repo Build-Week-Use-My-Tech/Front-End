@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {axiosWithAuth} from "./utils/axiosWithAuth";
+import { Link } from 'react-router-dom'
 
 const Login = (props) => {
 
@@ -50,6 +51,7 @@ const Login = (props) => {
                        onChange={handleLogin}
                        />
                 <button onClick={submitLogin}> Login</button>
+                <h4>Not Renting Tech Yet? <Link to='/signup'>Sign Up Here</Link></h4>
             </form>
         </div>
     )

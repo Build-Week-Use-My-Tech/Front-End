@@ -9,6 +9,7 @@ import { Link, Route, Switch } from "react-router-dom";
 import {Nav, Navbar} from "react-bootstrap";
 import styled from "styled-components";
 import ItemPage from './ItemPage'
+import { createBrowserHistory } from "history"
 
 const Styles = styled.div`
   .navbar{
@@ -33,11 +34,13 @@ const Styles = styled.div`
 
 
 
-const Navigation = ({ history }) => {
+const Navigation = (props) => {
+
+  const userid = localStorage.getItem("USERID");
 
     const logout = ()=>{
         localStorage.clear();
-        history.push("/login")
+      
     }
     
     return(
@@ -47,21 +50,30 @@ const Navigation = ({ history }) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Item><Link to="/login">Log In</Link></Nav.Item>
-          <Nav.Item><Link to="/signup">Sign Up</Link></Nav.Item>
-          <Nav.Item><Link to="/dashboard">Dashboard</Link></Nav.Item>
-          <Nav.Item> <Link to="/additem">Post your Tech</Link></Nav.Item>
-          <Nav.Item onClick={logout}>Log Out</Nav.Item>
+          {!userid && (<>
+            <Nav.Item><Link to="/login">Log In</Link></Nav.Item>
+            <Nav.Item><Link to="/signup">Sign Up</Link></Nav.Item></>)}
+          
+          
+          {/* <Nav.Item> <Link to="/additem">Post your Tech</Link></Nav.Item> */}
+          {userid && (<><Nav.Item><Link to="/dashboard">Dashboard</Link></Nav.Item>
+          <Link to='/'><Nav.Item onClick={logout}>Log Out</Nav.Item></Link>
+          </>)}
+          
         </Nav>
       </Navbar.Collapse>
     </Navbar>
       <Switch>
+        <Route exact path='/' component={ItemsList}/>
          <Route exact path='/ItemsList' component={ItemsList} />
           <Route path='/login' component={Login} />
           <Route path='/signup' component={SignUp} />
+          <Route path='/item/:id' 
+             render={props => <ItemPage 
+            {...props} />}/>
          <PrivateRoute path='/dashboard' component={Dashboard} />
           <PrivateRoute path='/additem' component={AddItem} />
-          <PrivateRoute path='/itemdetail' component={ItemPage} />
+          {/* <PrivateRoute path='/itemdetail' component={ItemPage} /> */}
     </Switch> 
   </Styles>
 )

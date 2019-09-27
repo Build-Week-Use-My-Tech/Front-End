@@ -34,8 +34,17 @@ import { Link } from 'react-router-dom'
 
     return(
         <div className='dashboard'>
+            <div className='dash-top'>
+                <div className='dash-top-section'>
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"/>
+                </div>
+                <div className='dash-top-section'>
             <h3>Hello {user.first_name}!</h3>
-            <h3>You currently have {dashboard.length} items listed to be rented. Click on the cards below to edit/remove them. You can also <Link to='/additem'>list a new item</Link></h3>
+            <h4>You currently have {dashboard.length} items listed to be rented. </h4>
+            <a href='#user-ads'><button>Manage Listings</button></a>
+            <Link to='/additem'> <button> List New Tech</button></Link>
+            </div>
+            </div>
             <div className='user-ads'>
             {dashboard.map(item =>{
                 return <DashCard item={item} dashboard={dashboard} setDashboard={setDashboard} />

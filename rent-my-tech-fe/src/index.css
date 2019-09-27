@@ -147,6 +147,11 @@ h3 {
   font-size: 2.5rem;
 }
 
+@keyframes buttonhover{
+  0% {background-color: black}
+  100% {background-color: rgb(65, 65, 65)}
+}
+
 form{
   margin: 0 auto;
   display: flex;
@@ -175,8 +180,20 @@ button{
   background-color: black;
   color: white;
   border: none;
-  padding: 10px 40px;
+  font-size: 2rem;
+  padding: 20px 40px;
   border-radius: 10px;
+  margin: 1rem;
+}
+
+p{
+  font-size: 1.4rem;
+  margin: 1rem;
+}
+
+button:hover{
+  animation: buttonhover .5s 1;
+  background-color: rgb(65, 65, 65);
 }
 
 i{
@@ -201,6 +218,9 @@ i:hover{
 .user-ads{
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1.5rem;
 }
 
 .card-image{
@@ -234,4 +254,71 @@ i:hover{
 
 .modali-header{
   display: none;
+}
+
+.item-detail{
+  width: 100%;
+}
+
+.dash-top{
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 3px dashed black;
+  width: 80%;
+}
+
+.dash-top-section{
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-top-section img{
+  max-height: 50rem;
+}
+
+.detail-top{
+  margin: 10rem auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.detail-top-section-L{
+  width: 60%;
+  border-right: 3px dashed black;
+}
+
+.detail-top-section-L img{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.additem-form{
+  margin-top: 10rem;
+}
+
+.login-form{
+  margin-top: 10rem;
+}
+
+.signup-form{
+  margin-top: 10rem;
+}
+
+.reviews{
+  margin-top: 5rem;
+  width: 60%;
+  margin: 5rem auto;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.reviews h3{
+  text-align: start;
+ 
 }

@@ -1,32 +1,38 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import ItemsCard from './ItemsCard';
+import ItemDetail from './ItemDetail';
+import axiosWithAuth from './utils/axiosWithAuth';
 
-const Item = (props) => {
-    const [item, setItem] = useState(null);
+const ItemPage = (props) => {
+    
+    const [itemDetail, setItemDetail] = useState();
+    const id = props.match.params.id;
+    console.log(id)
+    
 
     useEffect(() => {
-        const id = props.match.params.id;
 
-        axios.get(`https://tech-stuff.herokuapp.com/api/ads/${id}`)
+        axiosWithAuth().get(`https://tech-stuff.herokuapp.com/api/ads/${id}`)
         .then(response => {
-            setItem(response.data)
+            setItemDetail(response.data.result)
+            console.log(response.data.result)
         })
         .catch(error => {
             console.log('Error:', error)
         })
-    },[props.match.params.id])
+    },[])
 
-    if (!item) {
+    if (!itemDetail) {
         return(
         <div>Page loading information</div>)
     }
     return (
         <div>
-            <ItemsCard />
-            {/* <button onClick={bookSubmit}>Book Item</button> */}
+            {itemDetail.map(item =>{
+                return <ItemDetail item={item} />
+            })}
         </div>
     );
 }
 
-export default import('axios').AxiosInterceptorManager;
+export default ItemPage;
