@@ -40,7 +40,7 @@ const Navigation = (props) => {
 
     const logout = ()=>{
         localStorage.clear();
-      
+        window.location.reload();
     }
     
     return(
