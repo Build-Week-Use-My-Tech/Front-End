@@ -60,7 +60,7 @@ const userid = localStorage.getItem("USERID");
         console.log('Error', error);
     });
       
-  };
+  }; 
 
   const deleteItem = item => {
     const userid = localStorage.getItem("USERID");
